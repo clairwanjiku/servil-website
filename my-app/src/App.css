@@ -1,4 +1,4 @@
-/* Navbar.js */
+/* Navbar styles */
 .navbar {
   position: fixed;
   top: 0;
@@ -6,14 +6,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #333;
+  background-color: #ab2d0a;
   color: white;
-  padding: 10px 20px;
-  width: 100%; /* Ensure navbar spans the full width */
+  padding: 5px 10px; /* Adjusted padding */
+  width: 100%;
+  z-index: 1000; /* Ensure navbar is above other content */
 }
 
 .logo {
-  font-size: 24px;
+  font-size: 20px; /* Adjusted font size */
   font-weight: bold;
 }
 
@@ -25,7 +26,7 @@
 
 .nav-links li {
   display: inline;
-  margin-right: 20px;
+  margin-right: 15px; /* Adjusted margin */
 }
 
 .nav-links li a {
@@ -40,56 +41,87 @@
 
 .contact-info p {
   margin: 0;
-  margin-right: 20px;
+  margin-right: 15px; /* Adjusted margin */
 }
 
-
-/* Footer.js */
+/* Footer styles */
 .footer {
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 100%; /* Ensure footer spans the full width */
-  background-color: #333;
+  width: 100%;
+  background-color: #c91818;
   color: white;
   padding: 10px 20px;
   text-align: center;
+  z-index: 1000; /* Ensure footer is above other content */
 }
 
+/* Home container styles */
+.home-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
 
-.distributors-contact-card-container {
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* Ensure the video is behind the other content */
+}
+
+.distributor-list-container {
   position: fixed;
-  top: 50%;
+  top: 70px; /* Adjust to be below the navbar */
   right: 0;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-}
-
-.distributors-contact-card {
-  background-color: #f9f9f9;
-  border: 1px solid #ccc;
+  width: 300px; /* Adjust width as needed */
   padding: 20px;
-  margin-bottom: 20px; /* Add margin between each card */
+  background-color: rgba(255, 255, 255, 0.9); /* Optional: Add background color for better readability */
+  overflow-y: auto;
+  max-height: calc(100vh - 70px); /* Make sure it doesn't overflow the viewport */
+  z-index: 999; /* Ensure distributor list is above other content */
 }
 
-.distributors-contact {
-  text-align: left;
+.distributor-contact {
+  margin-bottom: 20px;
+  text-align: right;
 }
 
-.distributors-contact h3 {
+.distributor-contact h3 {
   margin-top: 0;
 }
 
-.distributors-contact p {
+.distributor-contact p {
   margin: 5px 0;
 }
 
-.distributors-contact a {
-  color: blue;
+.distributor-contact a {
+  color: blue; /* Adjust link color as needed */
   text-decoration: none;
 }
 
-.distributors-contact a:hover {
+.distributor-contact a:hover {
   text-decoration: underline;
+}
+
+/* About section styles */
+.about-section {
+  margin: 20px;
+}
+
+.about-content {
+  margin-top: 10px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.logo-image {
+  width: 100px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
 }

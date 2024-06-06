@@ -3,8 +3,8 @@ import './App.css';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import Home from './components/Home';
-import DistributorContact from './DistributorsContact'; 
-import contacts from '.components/contacts'; // Correctly import the contacts array
+import DistributorContact from './components/DistributorContact';
+import contacts from './Contacts'; // Ensure the path is correct
 
 const App = () => {
   const [visibleContacts, setVisibleContacts] = useState(7);
@@ -19,11 +19,10 @@ const App = () => {
   };
 
   return (
-    <div>
+    <div className="App">
       <Navbar />
       <Home />
-      
-      <div className="distributor-list">
+      <div className="distributor-list-container">
         {contacts.slice(0, visibleContacts).map(contact => (
           <DistributorContact
             key={contact.id}
@@ -60,4 +59,3 @@ const App = () => {
 };
 
 export default App;
-
