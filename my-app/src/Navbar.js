@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css'; // Import CSS file for styling
 import logo from './logo.jpg'; // Import the logo image
+import { MdPhoneIphone } from 'react-icons/md'; // Import the icon from react-icons
 
 const Navbar = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -74,3 +75,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
