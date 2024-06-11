@@ -1,127 +1,415 @@
 /* Navbar styles */
 .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #ab2d0a;
-  color: white;
-  padding: 5px 10px; /* Adjusted padding */
-  width: 100%;
-  z-index: 1000; /* Ensure navbar is above other content */
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #f8f9fa;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 5px 0; /* Reduced padding for smaller height */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px 5px;
+  }
+  
+  .navbar-logo {
+    width: 30px; /* Reduced width for smaller logo */
+    height: auto; 
+  }
+  
+  .nav-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .nav-links li {
+    display: inline-block;
+    margin-right: 5px; /* Reduced margin */
+  }
+  
+  .nav-links li a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease;
+    font-size: 12px; /* Reduced font size */
+  }
+  
+  .nav-links li a:hover {
+    color: #e8ecf0;
+  }
+
+  /* Media queries for responsiveness */
+  @media (max-width: 768px) {
+    .navbar {
+      padding: 5px 0; /* Adjust padding for smaller screens */
+    }
+
+    .nav-links li {
+      margin-right: 3px; /* Further reduce margin for smaller screens */
+    }
+
+    .nav-links li a {
+      font-size: 10px; /* Further reduce font size for smaller screens */
+    }
+  }
+
+  
+  .social-links a {
+    color: rgb(17, 17, 20); /* Change the color to blue */
+    font-size: 24px; /* Increase the size of the icons */
+    margin-right: 15px;
+  }
+  
+  .social-links a:hover {
+    color: #0000ff; /* Ensure hover color remains blue */
+  }
+  
+  .contact-info p {
+    color: hsl(0, 3%, 15%);
+    margin: 0;
+    margin-right: 15px;
+  }
+  
+  /* Logo styles */
+  .navbar-logo {
+    height: 40px; /* Adjust the height as needed */
+    margin-left: auto;
+    padding: 5px; /* Optional padding for better alignment */
+  }
+  
+  /* Footer styles */
+  .footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #c91818;
+    color: white;
+    padding: 20px 30px; /* Increased padding for more space inside the footer */
+    text-align: center;
+    z-index: 1000;
+    font-size: 18px; /* Increased font size for better readability */
+  }
+  
+  /* Home container styles */
+  .home-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  
+  .video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+  }
+  
+  .background-video {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    color: rgb(248, 242, 242);
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+  }
+  
+  .welcome-message {
+    margin-top: 10vh;
+    padding: 20px;
+    font-size: 200px;
+    text-align: center;
+    color: rgb(234, 234, 232); /* Set welcome message color to black */
+  }
+  
+  .content-container {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .our-community {
+    width: 50%;
+    padding: 40px;
+    position: relative;
+    background-color: white;
+    animation: slideInLeft 1s forwards;
+  }
+  
+  .our-community::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 100%;
+    width: 10;
+    height: 50;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-right: 20px solid rgb(29, 28, 28);
+  }
+  
+  .additional-content {
+    width: 50%;
+    padding: 20px;
+    position: relative;
+    background-color: rgba(40, 38, 38, 0.8);
+    animation: slideInRight 1s forwards;
+  }
+  
+  .additional-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 20px solid rgba(24, 22, 22, 0.8);
+  }
+  
+  @keyframes slideInLeft {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideInRight {
+    0% {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  .worker-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .worker-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  
+  .worker-details {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .distributor-popup {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #635d5d;
+    border-radius: 15px; /* Make the container round */
+    padding: 10px 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+  }
+  
+  .distributor-popup p {
+    margin: 0;
+    color: #fff; /* Change text color to white for better contrast */
+    font-size: 14px;
+  }
+  
+  .distributor-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* navmenu */
+  @media (max-width: 768px) {
+    body {
+      font-size: 14px;
+    }
+  
+    .item {
+      flex: 1 1 50%;
+    }
+  
+    .navbar {
+      flex-direction: column;
+    }
+  
+    .nav-links {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .nav-links li {
+      margin-bottom: 10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    body {
+      font-size: 12px;
+    }
+  
+    .item {
+      flex: 1 1 100%;
+    }
+  
+    .welcome-message {
+      font-size: 100px; /* Adjust for smaller screens */
+    }
+  }
+  
+  #navMenu {
+    display: none;
+  }
+  
+  #menuToggle {
+    display: block;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #navMenu ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  #navMenu ul li {
+    margin: 5px 0;
+  }
+  
+  #navMenu ul li a {
+    color: black;
+    text-decoration: none;
+  }
+  
+  @media (min-width: 768px) {
+    #navMenu {
+      display: block;
+    }
+  
+    #menuToggle {
+      display: none;
+    }
+  }
+  /* Footer */
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+section {
+    padding: 60px 0;
 }
 
-.logo {
-  font-size: 20px; /* Adjusted font size */
-  font-weight: bold;
+section .section-title {
+    text-align: center;
+    color: #007b5e;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+#footer {
+    background: #007b5e !important;
+}
+#footer h5{
+	padding-left: 10px;
+    border-left: 3px solid #eeeeee;
+    padding-bottom: 6px;
+    margin-bottom: 20px;
+    color:#ffffff;
+}
+#footer a {
+    color: #ffffff;
+    text-decoration: none !important;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+#footer ul.social li{
+	padding: 3px 0;
+}
+#footer ul.social li a i {
+    margin-right: 5px;
+	font-size:25px;
+	-webkit-transition: .5s all ease;
+	-moz-transition: .5s all ease;
+	transition: .5s all ease;
+}
+#footer ul.social li:hover a i {
+	font-size:30px;
+	margin-top:-10px;
+}
+#footer ul.social li a,
+#footer ul.quick-links li a{
+	color:#ffffff;
+}
+#footer ul.social li a:hover{
+	color:#eeeeee;
+}
+#footer ul.quick-links li{
+	padding: 3px 0;
+	-webkit-transition: .5s all ease;
+	-moz-transition: .5s all ease;
+	transition: .5s all ease;
+}
+#footer ul.quick-links li:hover{
+	padding: 3px 0;
+	margin-left:5px;
+	font-weight:700;
+}
+#footer ul.quick-links li a i{
+	margin-right: 5px;
+}
+#footer ul.quick-links li:hover a i {
+    font-weight: 700;
 }
 
-.nav-links {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+@media (max-width:767px){
+	#footer h5 {
+    padding-left: 0;
+    border-left: transparent;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
 }
-
-.nav-links li {
-  display: inline;
-  margin-right: 15px; /* Adjusted margin */
-}
-
-.nav-links li a {
-  text-decoration: none;
-  color: white;
-}
-
-.social-links a {
-  color: white;
-  margin-right: 10px;
-}
-
-.contact-info p {
-  margin: 0;
-  margin-right: 15px; /* Adjusted margin */
-}
-
-/* Footer styles */
-.footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #c91818;
-  color: white;
-  padding: 10px 20px;
-  text-align: center;
-  z-index: 1000; /* Ensure footer is above other content */
-}
-
-/* Home container styles */
-.home-container {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.background-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1; /* Ensure the video is behind the other content */
-}
-
-.distributor-list-container {
-  position: fixed;
-  top: 70px; /* Adjust to be below the navbar */
-  right: 0;
-  width: 300px; /* Adjust width as needed */
-  padding: 20px;
-  background-color: rgba(255, 255, 255, 0.9); /* Optional: Add background color for better readability */
-  overflow-y: auto;
-  max-height: calc(100vh - 70px); /* Make sure it doesn't overflow the viewport */
-  z-index: 999; /* Ensure distributor list is above other content */
-}
-
-.distributor-contact {
-  margin-bottom: 20px;
-  text-align: right;
-}
-
-.distributor-contact h3 {
-  margin-top: 0;
-}
-
-.distributor-contact p {
-  margin: 5px 0;
-}
-
-.distributor-contact a {
-  color: blue; /* Adjust link color as needed */
-  text-decoration: none;
-}
-
-.distributor-contact a:hover {
-  text-decoration: underline;
-}
-
-/* About section styles */
-.about-section {
-  margin: 20px;
-}
-
-.about-content {
-  margin-top: 10px;
-  background-color: #f9f9f9;
-  padding: 20px;
-  border: 1px solid #ccc;
-}
-
-.logo-image {
-  width: 100px; /* Adjust the width as needed */
-  height: auto; /* Maintain aspect ratio */
 }

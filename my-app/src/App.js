@@ -1,18 +1,11 @@
 import React, { useState } from 'react';
 import './App.css';
 import Navbar from './Navbar';
-import Footer from './Footer';
+
 import Home from './components/Home';
-import DistributorContact from './components/DistributorContact';
-import contacts from './Contacts'; // Ensure the path is correct
 
 const App = () => {
-  const [visibleContacts, setVisibleContacts] = useState(7);
   const [isAboutVisible, setIsAboutVisible] = useState(false);
-
-  const loadMoreContacts = () => {
-    setVisibleContacts(prev => prev + 7);
-  };
 
   const toggleAboutSection = () => {
     setIsAboutVisible(!isAboutVisible);
@@ -22,38 +15,47 @@ const App = () => {
     <div className="App">
       <Navbar />
       <Home />
-      <div className="distributor-list-container">
-        {contacts.slice(0, visibleContacts).map(contact => (
-          <DistributorContact
-            key={contact.id}
-            name={contact.name}
-            email={contact.email}
-            phone={contact.phone}
-            location={contact.location}
-          />
-        ))}
-        {visibleContacts < contacts.length && (
-          <button onClick={loadMoreContacts}>Load More</button>
-        )}
-      </div>
-
-      <div className="about-section">
-        <button onClick={toggleAboutSection}>
-          {isAboutVisible ? 'Hide About Us' : 'Show About Us'}
-        </button>
-        {isAboutVisible && (
-          <div className="about-content">
-            <h2>About Us</h2>
-            <p>
-              Welcome to our company! We are dedicated to providing the best service to our customers.
-              Our mission is to deliver high-quality products and ensure customer satisfaction.
-              Thank you for choosing us!
-            </p>
+      <div className="main-content">
+        <div className="content-left">
+          <div className="about-section">
+            <button onClick={toggleAboutSection}>
+              {isAboutVisible ? 'Hide About Us' : 'Show About Us'}
+            </button>
+            {isAboutVisible && (
+              <div className="about-content">
+                <h2>About Us</h2>
+                <p>
+                  Welcome to our company! We are dedicated to providing the best service to our customers.
+                  Our mission is to deliver high-quality products and ensure customer satisfaction.
+                  Thank you for choosing us!
+                </p>
+              </div>
+            )}
           </div>
-        )}
-      </div>
 
-      <Footer />
+          <div className="testimonials-section">
+            <h2>Testimonials</h2>
+            <p>What our customers say about us:</p>
+            <blockquote>
+              "This is the best service I have ever used!" - Customer A
+            </blockquote>
+            <blockquote>
+              "Highly recommend this company." - Customer B
+            </blockquote>
+          </div>
+
+          <div className="services-section">
+            <h2>Our Services</h2>
+            <p>We offer a wide range of services to meet your needs:</p>
+            <ul>
+              <li>Service 1: Description of Service 1</li>
+              <li>Service 2: Description of Service 2</li>
+              <li>Service 3: Description of Service 3</li>
+            </ul>                    
+          </div>
+        </div>
+      </div>
+      
     </div>
   );
 };
